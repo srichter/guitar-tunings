@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Guitar Tunings</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css">
+        <style type="text/css">
+            body {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .string {
+                text-align: center;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row vh-100">
+                <div class="col-12 align-self-center">
+                    <div class="row">
+                        <div class="col-6 offset-3 align-self-center">
+                            <h2>Guitar Tunings</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 1</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" class="form-control string" data-note="7" value="E" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 2</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" class="form-control string" data-note="2" value="B" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 3</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" class="form-control string" data-note="10" value="G" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 4</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" class="form-control string" data-note="5" value="D" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 5</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" class="form-control string" data-note="0" value="A" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 6px;">
+                        <div class="col-sm-2 offset-sm-4 col-3 offset-3 text-right">String 6</div>
+                        <div class="col-lg-1 col-2 align-self-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-10 col-md-6 col-sm-8 col-10">
+                                    <input type="text" id="string6" class="form-control string" data-note="7" value="E" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 12px;">
+                        <div class="col-6 offset-3 align-self-center">
+                            Current Tuning:<br>
+                            <span id="tuning" class="badge badge-success" data-offset="0">Standard</span><br>
+                            <button role="button" class="btn btn-sm btn-secondary tune-btn" data-direction="1">Up+</button> <button role="button" class="btn btn-sm btn-secondary tune-btn" data-direction="-1">Down-</button> <button role="button" id="reset-btn" class="btn btn-sm btn-danger">Reset</button><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="droptuning">
+                                <label class="form-check-label" for="droptuning">
+                                    Drop Tuning
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="showflats">
+                                <label class="form-check-label" for="showflats">
+                                    Show Flats
+                                </label>
+                            </div><br>
+                            Popular Tunings:<br>
+                            <span class="badge badge-pill badge-primary preset" style="cursor: pointer;" data-tuning="[5,0,8,3,10,5]" data-offset="-2" data-dropped="false">D Standard</span><br>
+                            <span class="badge badge-pill badge-primary preset" style="cursor: pointer;" data-tuning="[3,10,6,1,8,3]" data-offset="-4" data-dropped="false">C Standard</span><br>
+                            <span class="badge badge-pill badge-primary preset" style="cursor: pointer;" data-tuning="[6,1,9,4,11,4]" data-offset="-1" data-dropped="true">Drop C# (Db)</span><br>
+                            <span class="badge badge-pill badge-primary preset" style="cursor: pointer;" data-tuning="[3,10,6,1,8,1]" data-offset="-4" data-dropped="true">Drop A# (Bb)</span><br>
+                            <span class="badge badge-pill badge-primary preset" style="cursor: pointer;" data-tuning="[2,9,5,0,7,0]" data-offset="-5" data-dropped="true">Drop A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+            const notes_sharps = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+            const notes_flats = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
+            let notes = notes_sharps;
+            const standard = [7, 2, 10, 5, 0, 7];
+            const drop_string = $('#string6');
+
+            function adjustString(string, direction) {
+                const note = string.data('note');
+                const newnote = (((note + direction) % 12) + 12) % 12; // This will let us loop infinitely through the array. We modulo twice because JS performs incorrectly with negatives here
+                // console.log(string.val(), note, newnote);
+                string.val(notes[newnote]);
+                string.data('note', newnote);
+            }
+
+            function setTuningText() {
+                const offset = $('#tuning').data('offset');
+                const dropped = $('#droptuning').prop('checked');
+                let tuning_text = "";
+
+                if (dropped) {
+                    tuning_text = `Drop ${drop_string.val()} `;
+                } else {
+                    if (offset == 0) {
+                        tuning_text = 'Standard ';
+                    } else {
+                        tuning_text = `${drop_string.val()} Standard `;
+                    }
+                }
+
+                let steps = Math.abs(offset) * 0.5;
+                let steps_text = "";
+
+                if (steps != 0) {
+                    steps_text += "(";
+                    if (steps % 1 != 0) {
+                        if (steps - 0.5 != 0) {
+                            steps_text += `${steps-0.5} &frac12; Step`;
+                        } else {
+                            steps_text += `&frac12; Step`;
+                        }
+                    } else {
+                        steps_text += `${steps} Step`;
+                    }
+
+                    if (! (steps >= 0 && steps <= 1)) {
+                        steps_text += "s";
+                    }
+
+                    if (offset > 0) {
+                        steps_text += " Up";
+                    } else {
+                        steps_text += " Down";
+                    }
+
+                    if (dropped) {
+                        steps_text += " &amp; Dropped";
+                    }
+                    steps_text += ")";
+                }
+
+                $('#tuning').html(`${tuning_text} ${steps_text}`);
+            }
+
+            function resetInputs() {
+                $('input[type="text"]').each(function(index, input) {
+                    $(this).val($(this).attr('value'));
+                });
+                $('input[type="checkbox"]').each(function(index, input) {
+                    $(this).prop('checked', false);
+                });
+            }
+
+            $(document).ready(function() {
+                resetInputs();
+
+                $('.tune-btn').click(function(event) {
+                    const direction = $(this).data('direction');
+
+                    $('.string').each(function(index) {
+                        adjustString($(this), direction);
+                    });
+
+                    const offset = $('#tuning').data('offset') + direction;
+                    $('#tuning').data('offset', offset);
+
+                    setTuningText();
+                });
+
+                $('#droptuning').change(function(event) {
+                    const dropped = $(this).prop('checked') ? -2 : 2;
+                    adjustString(drop_string, dropped);
+                    setTuningText();
+                });
+
+                $('#showflats').change(function(event) {
+                    const flats = $(this).prop('checked');
+                    if (flats) {
+                        notes = notes_flats;
+                    } else {
+                        notes = notes_sharps;
+                    }
+                    $('.string').each(function(index) {
+                        adjustString($(this), 0);
+                    });
+                    setTuningText();
+                })
+
+                $('#reset-btn').click(function(event) {
+                    resetInputs();
+                    $('.string').each(function(index) {
+                        $(this).data('note', parseInt($(this).attr('data-note')));
+                    });
+                    $('#droptuning').prop('checked', false);
+                    $('#tuning').data('offset', 0);
+                    setTuningText();
+                });
+
+                $('.preset').click(function(event) {
+                    const tuning = $(this).data('tuning').slice(); // We slice by nothing here to create a copy of the array so we don't modify the data attribute
+                    $('.string').each(function(index) {
+                        const note = tuning.shift();
+                        $(this).data('note', note);
+                        $(this).val(notes[note]);
+                    });
+                    $('#tuning').data('offset', $(this).data('offset'));
+                    $('#droptuning').prop('checked', $(this).data('dropped'));
+                    setTuningText();
+                });
+            });
+        </script>
+    </body>
+</html>
